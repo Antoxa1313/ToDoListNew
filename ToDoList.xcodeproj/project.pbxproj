@@ -68,20 +68,36 @@
 		1F7256652A4A3D9000AE1692 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				1F938FDD2A86889500C4F7B1 /* Views */,
+				1F938FDC2A86886B00C4F7B1 /* Controllers */,
 				1F7256662A4A3D9000AE1692 /* AppDelegate.swift */,
 				1F7256682A4A3D9000AE1692 /* SceneDelegate.swift */,
+				1F72566F2A4A3D9200AE1692 /* Assets.xcassets */,
+				1F7256742A4A3D9200AE1692 /* Info.plist */,
+				1F7256802A4A553300AE1692 /* GoogleService-Info.plist */,
+			);
+			path = ToDoList;
+			sourceTree = "<group>";
+		};
+		1F938FDC2A86886B00C4F7B1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				1F72566A2A4A3D9000AE1692 /* SignInViewController.swift */,
 				1F72567A2A4A43B800AE1692 /* RegisterViewController.swift */,
 				1F72567C2A4A458700AE1692 /* TaskViewController.swift */,
 				1F293A792A7175B200EFCA63 /* EntryViewController.swift */,
 				1F72567E2A4A459B00AE1692 /* TaskDetailViewController.swift */,
-				1F72566C2A4A3D9000AE1692 /* Main.storyboard */,
-				1F72566F2A4A3D9200AE1692 /* Assets.xcassets */,
-				1F7256712A4A3D9200AE1692 /* LaunchScreen.storyboard */,
-				1F7256742A4A3D9200AE1692 /* Info.plist */,
-				1F7256802A4A553300AE1692 /* GoogleService-Info.plist */,
 			);
-			path = ToDoList;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1F938FDD2A86889500C4F7B1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1F72566C2A4A3D9000AE1692 /* Main.storyboard */,
+				1F7256712A4A3D9200AE1692 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

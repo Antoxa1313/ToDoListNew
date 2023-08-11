@@ -18,31 +18,13 @@ class SignInViewController: UIViewController {
     }
 
     @IBAction func registerButtonPressed(_ sender: UIButton) {
-        guard let email = emailTextField.text else {return}
-        guard let password = passwordTextField.text else {return}
         
-        Auth.auth().createUser(withEmail: email, password: password) { firebaseResult, error in
-            if let e = error {
-                print("error")
-            }
-            else {
-                self.performSegue(withIdentifier: "goToTaskVC", sender: self)
-            }
         }
     }
-    @IBAction func signInButtonPressed(_ sender: Any) {
-        guard let email = emailTextField.text else {return}
-        guard let password = passwordTextField.text else {return}
+     func signInButtonPressed(_ sender: Any) {
         
-        Auth.auth().signIn(withEmail: email, password: password) { firebaseResult, error in
-            if let e = error {
-                print("error")
-            }
-            else {
-                self.performSegue(withIdentifier: "goToTaskVC", sender: self)
-            }
         }
-    }
+
     
-}
+
 

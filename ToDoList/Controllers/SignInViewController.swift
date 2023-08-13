@@ -6,24 +6,32 @@
 //
 
 import UIKit
-import Firebase
+
 
 class SignInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let defaults = UserDefaults.standard
+        
+        defaults.set("Anton@gmail.com", forKey: "login")
+        defaults.set("test", forKey: "password")
     }
-
+    
     @IBAction func registerButtonPressed(_ sender: UIButton) {
-        
-        }
+        self.performSegue(withIdentifier: "goToTaskVC", sender: self)
     }
-     func signInButtonPressed(_ sender: Any) {
-        
-        }
+    
+
+    @IBAction func signInButtonPressed(_ sender: UIButton) {
+    }
+}
 
     
 

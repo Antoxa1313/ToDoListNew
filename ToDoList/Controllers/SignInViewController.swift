@@ -20,8 +20,8 @@ class SignInViewController: UIViewController {
         
         let defaults = UserDefaults.standard
         
-        defaults.set("Anton@gmail.com", forKey: "login")
-        defaults.set("test", forKey: "password")
+        let dict = ["login":"Anton@gmail.com","password":"test"]
+        defaults.set(dict, forKey: "SavedDict")
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {

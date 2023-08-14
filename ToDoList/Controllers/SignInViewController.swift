@@ -25,11 +25,17 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
+        let defaults = UserDefaults.standard
+        
+        let dict = ["login":"Anton@gmail.com","password":"test"]
+        defaults.set(dict, forKey: "SavedDict")
+        
         self.performSegue(withIdentifier: "goToTaskVC", sender: self)
     }
     
 
     @IBAction func signInButtonPressed(_ sender: UIButton) {
+        let savedDict = defaults.object(forKey: "SavedDict")
     }
 }
 

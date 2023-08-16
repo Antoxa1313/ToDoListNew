@@ -9,7 +9,7 @@ import Foundation
 
 class UserDefaultsManager{
     
-    let defaults = UserDefaults.standard
+   static let defaults = UserDefaults.standard
     
     
 }

@@ -16,7 +16,8 @@ class SignInViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     
-    
+    let dict = ["login":"Anton@gmail.com","password":"test"]
+ 
     
     @IBOutlet weak var emailTextField: UITextField!
     
@@ -36,13 +37,34 @@ class SignInViewController: UIViewController {
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         
         if emailTextField.text == ""
-        {let alert = UIAlertController(title: "Missing email", message: "Please write your email.", preferredStyle: UIAlertController.Style.alert)}
+            
+        {let alert = UIAlertController(title: "Error", message: "Please write your email.", preferredStyle: UIAlertController.Style.alert)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
         else if passwordTextField.text == ""
-        {let alert = UIAlertController(title: "Missing password", message: "Please write your password.", preferredStyle: UIAlertController.Style.alert)}
+                    
+        {let alert = UIAlertController(title: "Error", message: "Please write your password.", preferredStyle: UIAlertController.Style.alert)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
         
+        else if users.contains(where: users.login == emailTextField.text)
+        {let alert = UIAlertController(title: "Error", message: "Email already exists.", preferredStyle: UIAlertController.Style.alert)
+            
+            self.present(alert, animated: true, completion: nil)}
+        
+        else if users.contains(where: users.password == passwordTextField.text)
+        {let alert = UIAlertController(title: "Error", message: "Email already exists.", preferredStyle: UIAlertController.Style.alert)
+            
+            self.present(alert, animated: true, completion: nil)}
+        
+        else if users.isEmpty == true {users.append(User(login: emailTextField.text ?? <#default value#>, password: passwordTextField.text ?? <#default value#>))}
+        emailTextField.text = ""
+        passwordTextField.text = ""
         let defaults = UserDefaults.standard
         
-        let dict = ["login":users.login,"password":users.password]
+        let dict = ["login":"Anton@gmail.com","password":"test"]
         defaults.set(dict, forKey: "SavedDict")
         
         self.performSegue(withIdentifier: "goToTaskVC", sender: self)
@@ -50,6 +72,12 @@ class SignInViewController: UIViewController {
     
 
     @IBAction func signInButtonPressed(_ sender: UIButton) {
+       
+        if dict.isEmpty == false {}
+        
+        
+        
+        
         let savedDict = defaults.object(forKey: "SavedDict")
     }
 }

@@ -100,7 +100,8 @@ class SignInViewController: UIViewController {
             }
         }
         
-        
+        emailTextField.text = ""
+        passwordTextField.text = ""
         
     }
 }

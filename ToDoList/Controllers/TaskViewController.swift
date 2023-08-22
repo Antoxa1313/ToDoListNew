@@ -5,9 +5,9 @@
 ////  Created by Anton Nepotenko on 2023-06-26.
 ////
 //
-//import UIKit
-//
-//class TaskViewController: UIViewController {
+import UIKit
+
+class TaskViewController: UIViewController {
 //
 //    @IBOutlet weak var tableView: UITableView!
 //    
@@ -31,7 +31,7 @@
 //            self.updateTasks()
 //        }
 //        
-//    }
+    }
 //    
 //    func updateTasks() {
 //        guard let count = UserDefaults.standard.value(forKey: "count") as? Int else {

@@ -13,6 +13,16 @@ class SignInViewController: UIViewController {
     var users = [User]()
     var usersIndex = Int()
  
+    func showErrorAlert(withDescription: String) {
+        let alert = UIAlertController(
+            title: "Error",
+            message: description,
+            preferredStyle: UIAlertController.Style.alert
+        )
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
@@ -25,19 +35,9 @@ class SignInViewController: UIViewController {
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         
         if emailTextField.text == "" {
-            let alert = UIAlertController(
-                title: "Error",
-                message: "Please write your email.",
-                preferredStyle: UIAlertController.Style.alert
-            )
-            self.present(alert, animated: true, completion: nil)
+            showErrorAlert(withDescription: "Please write your email.")
         } else if passwordTextField.text == "" {
-            let alert = UIAlertController(
-                title: "Error",
-                message: "Please write your password.",
-                preferredStyle: UIAlertController.Style.alert
-            )
-            self.present(alert, animated: true, completion: nil)
+            showErrorAlert(withDescription: "Please write your password.")
         } else if users.isEmpty == true {
             users.append(
                 User(
@@ -54,12 +54,7 @@ class SignInViewController: UIViewController {
             print("Users: \(users)")
             
             if users.contains(where: {$0.login == emailTextField.text}) {
-                let alert = UIAlertController(
-                    title: "Error",
-                    message: "User already exist.",
-                    preferredStyle: UIAlertController.Style.alert
-                )
-                self.present(alert, animated: true, completion: nil)
+                showErrorAlert(withDescription: "User already exist.")
             } else {
                 users.append(
                     User(
@@ -79,23 +74,14 @@ class SignInViewController: UIViewController {
     @IBAction func signInButtonPressed(_ sender: UIButton) {
        
         if emailTextField.text == "" {
-            let alert = UIAlertController(
-                title: "Error",
-                message: "Please write your email.",
-                preferredStyle: UIAlertController.Style.alert
-            )
-            self.present(alert, animated: true, completion: nil)
+            showErrorAlert(withDescription: "Please write your email.")
         } else if passwordTextField.text == "" {
-            let alert = UIAlertController(
-                title: "Error",
-                message: "Please write your password.",
-                preferredStyle: UIAlertController.Style.alert
-            )
-            self.present(alert, animated: true, completion: nil)
+            showErrorAlert(withDescription: "Please write your password.")
         } else {
-            for i in users where users[i].login == emailTextField && users[i].password == passwordTextField {
-                usersIndex = i
-                let vc = storyboard?.instantiateViewController(withIdentifier: "task") as! TaskViewController
+            if (users.first(where: {$0.login == emailTextField.text}) != nil) &&
+                (users.first(where: {$0.password == passwordTextField.text}) != nil)
+//            for user in users where users[i].login == emailTextField && users[i].password == passwordTextField
+            { let vc = storyboard?.instantiateViewController(withIdentifier: "task") as! TaskViewController
                 navigationController?.pushViewController(vc, animated: true)
             }
         }

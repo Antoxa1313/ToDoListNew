@@ -80,9 +80,9 @@ class SignInViewController: UIViewController {
         } else {
             if (users.first(where: {$0.login == emailTextField.text}) != nil) &&
                 (users.first(where: {$0.password == passwordTextField.text}) != nil)
-//            for user in users where users[i].login == emailTextField && users[i].password == passwordTextField
+
             { let vc = storyboard?.instantiateViewController(withIdentifier: "task") as! TaskViewController
-                navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
         

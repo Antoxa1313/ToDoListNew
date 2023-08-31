@@ -10,6 +10,6 @@ import Foundation
 struct Task:Codable {
     var title: String
     var description: String
-    var deadline: Date
     var status: String
+    
 }

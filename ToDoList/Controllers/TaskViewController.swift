@@ -11,13 +11,21 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 //    var tasks = [Task]()
      
-    let tasks = ["Create app",
+   var tasks = ["Create app",
                  "Sign the lease",
                  "Options system",
                  "Open corporation",
                  "Fix Iphone",
                  "Multifamily",
                  "Property zoning"]
+//
+//    [
+//           Task(title: "Create app", description: "ios app", status: "In progress"),
+//           Task(title: "Sign the lease", description: "Rental agreement", status: "Todo"),
+//           Task(title: "Options system", description: "Trading system", status: "In progress"),
+//           Task(title: "Fix Iphone", description: "Broken screen", status: "Todo"),
+//           Task(title: "Multifamily", description: "Property", status: "Todo")
+//       ]
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -32,6 +40,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         
 //        cell.textLabel?.text = "Hello world"
         cell.textLabel?.text = tasks[indexPath.row]
+        
         return cell
     }
     
@@ -43,19 +52,24 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.delegate = self
         tableView.dataSource = self
-        
+//        updateTasks()
     }
     
-    //    func updateTasks() {
-    //       guard let count = UserDefaults.standard.value(forKey: "count") as? Int else {
-    //           return
-    //       }
-    //        for X in 0..<count{
-    //            if let task = UserDefaults.standard.value(forKey: "task_\(X+1)") as? String {
-    //                tasks.append(task)
-    //            }
-    //        }
-    //    }
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        
+        let vc2 = storyboard?.instantiateViewController(withIdentifier: "detail") as! TaskDetailViewController
+            self.navigationController?.pushViewController(vc2, animated: true)
+    }
+//        func updateTasks() {
+//           guard let count = UserDefaults.standard.value(forKey: "count") as? Int else {
+//               return
+//           }
+//            for X in 0..<count{
+//                if let task = UserDefaults.standard.value(forKey: "task_\(X+1)") as? String {
+//                    tasks.append(task)
+//                }
+//            }
+//        }
         
     }
 

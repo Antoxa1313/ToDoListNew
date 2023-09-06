@@ -11,14 +11,16 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 //    var tasks = [Task]()
      
-   var tasks = ["Create app",
+   var tasks =
+    
+    ["Create app",
                  "Sign the lease",
                  "Options system",
                  "Open corporation",
                  "Fix Iphone",
                  "Multifamily",
                  "Property zoning"]
-//
+
 //    [
 //           Task(title: "Create app", description: "ios app", status: "In progress"),
 //           Task(title: "Sign the lease", description: "Rental agreement", status: "Todo"),

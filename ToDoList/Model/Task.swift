@@ -8,8 +8,8 @@
 import Foundation
 
 struct Task:Codable {
-    var title: String
-    var description: String
-    var status: String
+    var cellTitle: String
+    var cellDescription: String
+    var cellStatus: String
     
 }

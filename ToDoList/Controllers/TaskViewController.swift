@@ -13,21 +13,21 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
      
    var tasks =
     
-    ["Create app",
-                 "Sign the lease",
-                 "Options system",
-                 "Open corporation",
-                 "Fix Iphone",
-                 "Multifamily",
-                 "Property zoning"]
+//    ["Create app",
+//                 "Sign the lease",
+//                 "Options system",
+//                 "Open corporation",
+//                 "Fix Iphone",
+//                 "Multifamily",
+//                 "Property zoning"]
 
-//    [
-//           Task(title: "Create app", description: "ios app", status: "In progress"),
-//           Task(title: "Sign the lease", description: "Rental agreement", status: "Todo"),
-//           Task(title: "Options system", description: "Trading system", status: "In progress"),
-//           Task(title: "Fix Iphone", description: "Broken screen", status: "Todo"),
-//           Task(title: "Multifamily", description: "Property", status: "Todo")
-//       ]
+    [
+           Task(cellTitle: "Create app", cellDescription: "ios app", cellStatus: "In progress"),
+           Task(cellTitle: "Sign the lease", cellDescription: "Rental agreement", cellStatus: "Todo"),
+           Task(cellTitle: "Options system", cellDescription: "Trading system", cellStatus: "In progress"),
+           Task(cellTitle: "Fix Iphone", cellDescription: "Broken screen", cellStatus: "Todo"),
+           Task(cellTitle: "Multifamily", cellDescription: "Property", cellStatus: "Todo")
+       ]
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -38,10 +38,11 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celll", for: indexPath) as! TaskTableViewCell
         
 //        cell.textLabel?.text = "Hello world"
-        cell.textLabel?.text = tasks[indexPath.row]
+        cell.textLabel?.text = tasks[indexPath.row].cellTitle
+        cell.textLabel?.text = tasks[indexPath.row].cellDescription
         
         return cell
     }

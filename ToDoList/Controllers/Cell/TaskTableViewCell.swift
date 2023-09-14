@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol TaskTableViewCellDelegate: AnyObject {}
+
 
 class TaskTableViewCell: UITableViewCell {
 

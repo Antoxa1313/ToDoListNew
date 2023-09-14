@@ -22,11 +22,11 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
 //                 "Property zoning"]
 
     [
-           Task(cellTitle: "Create app", cellDescription: "ios app", cellStatus: "In progress"),
-           Task(cellTitle: "Sign the lease", cellDescription: "Rental agreement", cellStatus: "Todo"),
-           Task(cellTitle: "Options system", cellDescription: "Trading system", cellStatus: "In progress"),
-           Task(cellTitle: "Fix Iphone", cellDescription: "Broken screen", cellStatus: "Todo"),
-           Task(cellTitle: "Multifamily", cellDescription: "Property", cellStatus: "Todo")
+        Task(cellTitle: "Create app", cellDescription: "ios app", cellDeadline: "2024/10/12", cellStatus: "In progress"),
+           Task(cellTitle: "Sign the lease", cellDescription: "Rental agreement", cellDeadline: "2024/10/12", cellStatus: "Todo"),
+           Task(cellTitle: "Options system", cellDescription: "Trading system", cellDeadline: "2024/10/12", cellStatus: "In progress"),
+           Task(cellTitle: "Fix Iphone", cellDescription: "Broken screen", cellDeadline: "2024/10/12", cellStatus: "Todo"),
+           Task(cellTitle: "Multifamily", cellDescription: "Property", cellDeadline: "2024/10/12", cellStatus: "Todo")
        ]
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -38,11 +38,13 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celll", for: indexPath) as! TaskTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath) as! TaskTableViewCell
         
 //        cell.textLabel?.text = "Hello world"
         cell.textLabel?.text = tasks[indexPath.row].cellTitle
         cell.textLabel?.text = tasks[indexPath.row].cellDescription
+//        cell.textLabel?.text = tasks[indexPath.row].cellDeadline
+        
         
         return cell
     }
@@ -52,6 +54,9 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "TaskTableViewCell")
         
         tableView.delegate = self
         tableView.dataSource = self

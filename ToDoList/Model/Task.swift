@@ -10,6 +10,7 @@ import Foundation
 struct Task:Codable {
     var cellTitle: String
     var cellDescription: String
+    var cellDeadline: String
     var cellStatus: String
     
 }
